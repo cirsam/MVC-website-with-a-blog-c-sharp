@@ -1,0 +1,47 @@
+﻿@model IEnumerable<myblogs.Models.BlogModelClass>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    #homepagetextparent{
+    width:99%;
+    }
+    #homepagetext{
+    width:50%;
+    //border:solid skyblue 1px;
+    background-color: skyblue;
+    //box-shadow: 2px 2px 2px 2px skyblue;
+    margin-left:auto;
+    margin-right:auto;
+    }
+    #homepagetext:hover{
+    width:50%;
+    border:solid gray  1px;
+    background-color: skyblue;
+    box-shadow: 2px 2px 2px 2px skyblue;
+    margin-left:auto;
+    margin-right:auto;
+    }
+</style>
+<div class="text-center"id="homepagetextparent" >
+
+    <h4Wlet people know about what youdo< /h4>
+    <h5> who is this for? </h5>
+    
+    <div class="text-center" id="homepagetext" >
+
+        <p> are you a company owner who feels no one knows about your company?</p>
+
+    <p>And  looking for the right place to  tel your story and  invite the right  audience who need your products and services ?
+       
+        
+           <div> <a style="width:10px;margin-left:auto;margin-right:auto;"  asp-area="Identity" asp-page="/Account/Register">Create </a></div>
+        your account to publish a story or 
+         <div><a style="width:10px;margin-left:auto;margin-right:auto;"  asp-area="Identity" asp-page="/Account/Login">Login</a></div>
+        to write a story, if you already have an accout</p>
+</div>
+  
+</div>
+ 
+

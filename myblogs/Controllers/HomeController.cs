@@ -18,6 +18,20 @@ namespace myblogs.Controllers
             return View();
         }
 
+        public IActionResult Pricing()
+        {
+            return View();
+        }
+
+        public IActionResult Aboutus()
+        {
+            return View();
+        }
+        public IActionResult contactus()
+        {
+            return View();
+        }
+
         public IActionResult Blog()
         {
             return View();

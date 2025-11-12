@@ -1,48 +1,151 @@
-﻿@* @{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    #homepagetextparent{
-    width:99%;
-    }
-    #homepagetext{
-    width:50%;
-    //border:solid skyblue 1px;
-    background-color: skyblue;
-    //box-shadow: 2px 2px 2px 2px skyblue;
-    margin-left:auto;
-    margin-right:auto;
-    }
-    #homepagetext:hover{
-    width:50%;
-    border:solid gray  1px;
-    background-color: skyblue;
-    box-shadow: 2px 2px 2px 2px skyblue;
-    margin-left:auto;
-    margin-right:auto;
-    }
-</style>
-<div class="text-center"id="homepagetextparent" >
 
-    <h4>Welcome to The my blogs book</h4>
-    <h5> who is this for? </h5>
-    
-    <div class="text-center" id="homepagetext" >
 
-        <p> are you a reader unlike any one else? then there are countless stories to read from here.</p>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="p-3 ">
+        <h4> <a class="homecontct-link" asp-controller="Home" sp-area="" asp-action="Contactus"> contact us for more information</a> </h4>
+    </div>
+</div>
 
-    <p>and what if you are a writer with great imagination and coming up with stories and idears and looking for a place to share them with the wold?
-       
+
+
+<div style="clear:both;align-content:center ;width:100%;float:middle" >
+ 
+ </div>
+
+<div class="container">
+    <section class="row">
+
+
+
+      
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h5 class="card-title"> advertisement consultation</h5>
+                            
+                        </div>
+                    </div>
+                        <div class="text-center">
+                            <img width=400px" height="2350px" class="img-fluid" alt="Centered image" src="~/assets/advertpundits  new billboards.png" />
+                    </div>
+                        <p class="card-text">
+                    <div class="card-body">
+                        <ol class="list-group list-group-numbered">
+
+
+                            <li> brand enhancement session </li>
+                            <li>we will help you in coming up with an dvertisment strategy pe your company size ,revenue and if it is a startup or not</li>
+                            <li>we will help you decide, which media will be besty for our company when it comes to return on investmentROI.</li>
+                            <li>
+                                we will Help guide your next move and answer any questions you may have
+                                concerning growing your company
+                            <li> <h1 class="card-title pricing-card-title">$50 <small class="text-muted">per session</small></h1> </li>
+
+                        </ol>
+                    </div>
+                    </div>
+                    </p>
+                    <a href="#" class="btn btn-primary">book your 30 minutes session now</a>
+                <div style="height:300px;background-color:none"> </div>
+                </div>
+                    </div>
+                    
+
+
+
+
+      
+    <div class="col-sm-6">
+        <div class="card">
+            <d class="card-body">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h5 class="card-title"> IT consultation</h5>
+
+                    </div>
+                </div>
+                            <div class="text-center">
+                                <img width="300px"height="290px" class="img-fluid" alt="Centered image" src="~/assets/server room.png" />
+                    </div>
+
+                    <p class="card-text">
+                        <div class="card-body">
+                            <ol class="list-group list-group-numbered">
+
+                                <li>technology is changing the way we do business you either catch on or fall behind  </li>
+
+
+                                <li class="list-unstyled mt-3 mb-4">
+                                <li> brand enhancement session </li>
+                                <li>we will help you come up with an IT strategy that will transform your company and make it tech savy</li>
+
+                                <li>we will helpyou come up with a strategic website </li>
+                                <li>we will help answer any IT questions you may have about implementing technology in your business</li>
+                                <h1 class="card-title pricing-card-title">$100 <small class="text-muted">per session</small></h1> </li>
+                            </ol>
+                        </div>
+
+                    </p>
+                    <a href="#" class="btn btn-primary">
+                        book your 30 minutes session now
+                    </a>
+                    <div style="height:300px;background-color:none"> </div>
+ 
+    </div>
+    </div>
+   
+    </section>
+
+@*      <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Tier1 dvertisement consultation</h4>
+                </div>
+                </div>
+                <div class="card-body">
+                    <ol class="list-group list-group-numbered">
+
+                   <li> <h1 class="card-title pricing-card-title">$50 <small class="text-muted">per session</small></h1> </li>
+                   
+                        <li> brand enhancement session </li>
+                        <li>we will help you in coming up with an dvertisment strategy pe your company size ,revenue and if it is a startup or not</li>
+                        <li>we will help you decide, which media will be besty for our company when it comes to return on investmentROI.</li>
+                        <li>we will Help guide your next move and answer any questions you may have 
+                     concerning growing your company</li>
+                    </ol>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> book your 30 minutes session now </button>
+                </div>
+                </div>
+
+
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Tier1 IT  consultation</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <ol class="list-group list-group-numbered">
+                    
+                        <li>technology is changing the way we do business you either catch on or fall behind  </li>
+
+                            <li> <h1 class="card-title pricing-card-title">$100 <small class="text-muted">per session</small></h1> </li>
+                            <li class="list-unstyled mt-3 mb-4"> <li> brand enhancement session </li>
+                        <li>we will help you come up with an IT strategy that will transform your company and make it tech savy</li>
+                        
+                            <li>we will helpyou come up with a strategic website </li>
+                        <li>we will help answer any IT questions you may have about implementing technology in your business</li>
+                    </ol>
+
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"> book your 30 minutes session. now</button>
+                </div>
+            </div> 
+           
         
-           <div> <a style="width:10px;margin-left:auto;margin-right:auto;"  asp-area="Identity" asp-page="/Account/Register">Create </a></div>
-        your account to publish a story or 
-         <div><a style="width:10px;margin-left:auto;margin-right:auto;"  asp-area="Identity" asp-page="/Account/Login">Login</a></div>
-        to write a story</p>
-</div>
-  
-</div>
- *@
+   </section> *@
 
-<div style="color:blue;important!;}">
-    <h1 style="{ color:blue;important!}"> the website is under construction</h1>
-</div>

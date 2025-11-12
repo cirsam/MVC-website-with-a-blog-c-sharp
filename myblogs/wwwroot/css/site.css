@@ -1,8 +1,188 @@
-html {
-  font-size: 14px;
+
+nav {
+    position: fixed !important;
+    !important;
+    color: black !important;
+    height: 40px !important;
+    width: 100% !important;
+    margin-left: -18px !important;
+    background-color: forestgreen !important;
+    -webkit-box-align: center;
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+    nav:hover {
+        position: fixed !important;
+        !important;
+        color: black !important;
+        height: 40px !important;
+        width: 100% !important;
+        margin-left: -18px !important;
+        background-color: magenta !important;
+        -webkit-box-align: center;
+        z-index: 1000;
+        font-size: 16px;
+        font-weight: 800;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+footer {
+    box-shadow: 20px 25px 25px rgba(0, 0, 0, 0.5);
+}
+ a.homecontct-link:hover {
+    
+}
+h4 a.homecontct-link:hover {
+    color:silver;
+    text-decoration:none;
 }
 
-@media (min-width: 768px) {
+}
+
+
+@media screen and (max-width:1300px) { /* if the screen size is less than 900px apply.*/
+
+    .pruceimagessidediv {
+        width: 100px !important;
+        height: auto;
+        vertical-align: top;
+        font-weight: 800;
+        float: right;
+        word-break: break-all;
+    }
+}
+/*
+@media screen and (min-width: 900px) {   if the screen size isgreater than 1200px apply.
+
+
+   
+
+
+}*/
+
+
+
+    .navbar-toggler collapsed {
+        background-color: black;
+        color:silver;
+    }
+    
+
+    .priceimages {
+        width: 200px;
+        height: 200px;
+    }
+
+
+    .container {
+        display: flex; /* Makes the container a flex container */
+        gap: 10px; /* Adds space between flex items */
+    }
+
+    .contactus-homeon- link {
+        display: inline;
+    }
+
+    .box1 {
+        display: block;
+        width: auto;
+    }
+    }
+    .box2 {
+        display: block;
+        vertical-align: top;
+        width: 50%;
+        background-color: lightblue;
+        padding: 20px;
+        border: 1px solid blue;
+        background-color: blue;
+    }
+
+
+    a.nav-link {
+        color: white !important;
+    }
+
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        background-color: magenta;
+        color: white;
+        text-align: center;
+        width: 100%;
+        height: 40px;
+        font-weight: 800;
+        font-size: 16px;
+        padding-right: 40px;
+    }
+
+        footer:hover {
+            position: fixed;
+            bottom: 0;
+            background-color: forestgreen;
+            color: magenta;
+            text-align: right;
+            width: 100%;
+            height: 40px;
+            font-weight: 800;
+            font-size: 16px;
+            padding-right: 40px;
+        }
+
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+    }
+
+    :root {
+        --blue: #007bff;
+        --indigo: #6610f2;
+        --purple: #6f42c1;
+        --pink: #e83e8c;
+        --red: #dc3545;
+        --orange: #fd7e14;
+        --yellow: #ffc107;
+        --green: #28a745;
+        --teal: #20c997;
+        --cyan: #17a2b8;
+        --white: #fff;
+        --gray: #6c757d;
+        --gray-dark: #343a40;
+        --primary: #007bff;
+        --secondary: #6c757d;
+        --success: #28a745;
+        --info: #17a2b8;
+        --warning: #ffc107;
+        --danger: #dc3545;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --breakpoint-xs: 0;
+        --breakpoint-sm: 576px;
+        --breakpoint-md: 768px;
+        --breakpoint-lg: 992px;
+        --breakpoint-xl: 1200px;
+        --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+
+
+
+
+
+
+
+
+
+@ /*media (min-width: 768px) {
   html {
     font-size: 16px;
   }
@@ -19,4 +199,78 @@ html {
 
 body {
   margin-bottom: 60px;
+}*/
+@media screen and (max-width:900px) {
+    .navbar-expand-sm > .container, .navbar-expand-sm > .container-fluid {
+        padding-right: 0;
+        padding-left: 0
+    }
+
+    .container {
+        display: flex; /* Makes the container a flex container */
+        gap: 10px; /* Adds space between flex items */
+    }
+
+    .collapse.navbar-collapse {
+        background-color: black !important;
+        color: silver;
+    }
+
+    .priceimages {
+        width: 200px;
+        height: 250px;
+    }
+
+    div.pruceimagessidediv {
+        width: 50px !important;
+        vertical-align: top;
+        font-weight: 800;
+    }float:right;
 }
+
+
+
+
+
+
+
+    @media screen and (max-width: 575.98px) {
+        .navbar-expand-sm > .container, .navbar-expand-sm > .container-fluid {
+            padding-right: 0;
+            padding-left: 0
+        }
+
+        .priceimages {
+            width: 300px;
+            height: 250px;
+        }
+
+        .collapse.navbar-collapse {
+            background-color: black !important
+            color: silver;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .navbar-expand-sm {
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start
+        }
+
+        .priceimages {
+            width: 300px;
+            height: 250px;
+        }
+
+        .collapse.navbar-collapse {
+            background-color: black !important;
+            color: black !important;
+        }
+    }
+
+

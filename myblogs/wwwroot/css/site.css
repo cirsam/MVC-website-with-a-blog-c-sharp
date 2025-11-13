@@ -27,6 +27,7 @@ nav {
         font-weight: 800;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     }
+
 footer {
     box-shadow: 20px 25px 25px rgba(0, 0, 0, 0.5);
 }
@@ -53,10 +54,10 @@ h4 a.homecontct-link:hover {
 
 
 
-    .navbar-toggler collapsed {
-        background-color: black;
-        color:silver;
-    }
+.navbar-toggler collapsed {
+    background-color: #28a745;
+    color: silver;
+}
     
 
     .priceimages {
@@ -206,13 +207,13 @@ body {
     }
 
     .collapse.navbar-collapse {
-        background-color: black !important;
+        background-color: #28a745 !important;
         color: silver;
     }
 
     .priceimages {
-        width: 400px !important
-        height: 350px !important
+        width: 400px !important;
+        height: 350px !important;
     }
 
 
@@ -262,7 +263,7 @@ body {
 
 
         .collapse.navbar-collapse {
-            background-color: black !important;
+            background-color: forestgreen !important;
             color: silver;
         }
     }

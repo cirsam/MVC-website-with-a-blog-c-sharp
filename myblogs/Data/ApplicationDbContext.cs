@@ -14,6 +14,7 @@ namespace myblogs.Data
         public DbSet<BlogTypesModel> BlogsTypes { get; set; }
         public DbSet<CommentsModel> Comments { get; set; }
         public DbSet<BlogStatus> BlogStatus { get; set; }
+        public DbSet<UserAccountModel> userAccounts { get; set; }
 
 
 

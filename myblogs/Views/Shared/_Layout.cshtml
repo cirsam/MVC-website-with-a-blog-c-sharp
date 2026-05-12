@@ -1,4 +1,7 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
 
     <!-- Bootstrap core CSS -->
     
-    <link href=~/css/bootstrap.min.css" rel="stylesheet">
+    <link href=~/css/bootstrap.min.css" rel="stylesheet">F
 
     <!-- Custom styles for this template -->
     
@@ -48,14 +51,41 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
 
-                   @*  <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">create a login</a>
+                     <li class="nav-item">
+                        <a class="nav-link text-dark"  href="/Account/Register">create a login</a>
                     </li>
-                    <li class="nav-item">
+                    @* <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                    </li> *@
+                    </li>  *@
 
                 </ul>
+
+                @* this is from Login Partial *@
+                <ul class="navbar-nav">
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+                        </li>
+                        <li class="nav-item">
+                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button type="submit" class="btn btn-close-white">Logout</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark"  href="/Account/Register">create a login</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Account/Login">Login</a>
+                        </li>
+                    }
+                </ul>
+
+
             </div>
         </nav>
     </nav>
@@ -79,9 +109,9 @@
    
    
         @RenderBody()
-        @* @await RenderSectionAsync("Scripts", required: false) *@
+          @await RenderSectionAsync("Scripts", required: false) 
 
-        @*   <footer class="border-top footer text-muted">
+           <footer class="border-top footer text-muted">
             <div class="container">
                 &copy; 2025 - test - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
            
@@ -128,7 +158,7 @@
             <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
             <script src="~/js/site.js" asp-append-version="true"></script>
            
-            </footer>*@
+            </footer>
 <footer>
             Copyright &copy; @DateTime.Now.Year  Advert pundits. All rights reserved.created. by Samuel Antwi
 </footer>
@@ -138,5 +168,5 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @*@await RenderSectionAsync("Scripts", required: false)*@
 </html>

@@ -131,7 +131,7 @@ namespace myblogs.Controllers
         {
             try
             {
-               //to send an email from visual studio localhost to an external email address, go to your gmail account security settings and create an app password ,give your app a name
+               //to send an email from visual studio localhost server to an external email address, go to your gmail account security settings and create an app password ,give your app a name
                //they will give you a 16 digit password
                //and use your email and app name with the credentials here you should be good to go if you gollow the steps here.
                  

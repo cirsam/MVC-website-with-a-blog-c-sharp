@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace myblogs.Controllers
@@ -19,6 +21,7 @@ namespace myblogs.Controllers
         private readonly ApplicationDbContext _context;
         private readonly SignInManager<IdentityUser> UserManager;
         private readonly Microsoft.AspNetCore.Identity.UserManager<IdentityUser> _userManager;
+        private bool sendMessageStatus;
 
         public AccountController(ApplicationDbContext context, SignInManager<IdentityUser> signInManager, Microsoft.AspNetCore.Identity.UserManager<IdentityUser> userManager)
         {
@@ -49,12 +52,28 @@ namespace myblogs.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
+                else
+                {
 
-                ModelState.AddModelError(string.Empty, "Invalid Credentials");
+                    var systemUser = await _userManager.FindByEmailAsync(user.Email);
+                    if (systemUser != null)
+                    {
+                        bool isConfirmed = await _userManager.IsEmailConfirmedAsync(systemUser);
+                        if (!isConfirmed)
+                        {
+                            ModelState.AddModelError(string.Empty, "your email is not confirmed we cannot log you in until you confim your email.Check your junk mail or spamfolder");
+                        }
 
+
+                    }
+
+
+                }
             }
+
+
             return View(user);
-        }
+        } 
 
 
 
@@ -78,14 +97,20 @@ namespace myblogs.Controllers
 
                 if (result.Succeeded)
                 {
-                    string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Action("EmailConfirm", "Account",
-                        new { userId = user.Id, code = code }, protocol: Request.Scheme);
+                    // await _signInManager.SignInAsync(user, isPersistent: false); Ucomment this line to automaically log the user in when they register.Which is not seured.
 
+                    // they should confirm their account with the callbackUrl link in the email that is geneated below before they should be allowed to login.
 
-                    // await _signInManager.SignInAsync(user, isPersistent: false);
+                    string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                   
+                        var emailConfirmationLink = Url.Action("EmailConfirm", "Account", new { userId = user.Id, code = token}, protocol: HttpContext.Request.Scheme);
 
-                    return RedirectToAction("index", "Home");
+                    if (!string.IsNullOrEmpty(emailConfirmationLink))
+                    {
+                        await SentAccountConfirmationEmail(model.Email, emailConfirmationLink);
+                    }
+
+                    return RedirectToAction("SentAccountConfirmationEmail", "Account");
                 }
 
                 foreach (var error in result.Errors)
@@ -101,7 +126,58 @@ namespace myblogs.Controllers
 
 
 
-      
+        public async Task<IActionResult> SentAccountConfirmationEmail(string userEmail, string emailConfirmationLink)
+        {
+            try
+            {
+                
+                var senderEmail = new MailAddress("your_email_name@gmail.com", "myblogs");
+                var receiverEmail = new MailAddress(userEmail);
+                //var password = "your-16-char-app-password"; // Use the App Password here
+                var password = ""; // Use the App Password here
+                var subject = "Confirm your myblogs Account";
+                var body = $"Please click the link <a href=\"{emailConfirmationLink}\">confirm</a> to confirm your account...";
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(senderEmail.Address, password)
+                };
+
+                using (var message = new MailMessage(senderEmail, receiverEmail)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
+                {
+                    await smtp.SendMailAsync(message);
+                    sendMessageStatus = true;
+                    if (sendMessageStatus)
+                    {
+                        ViewBag.Message = "Confirmation email sent successfully!";
+
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Failed to send confirmation email.Contact Adiminstrator at cirsam...";
+                    }
+                }
+
+                } catch (Exception ex)
+                    {
+                        ViewBag.Message = "Error: system failure";
+                    }
+
+            return View();
+        }
+
+
+
         [HttpGet]
         public async Task<IActionResult> EmailConfirm(string userId, string code)
         {

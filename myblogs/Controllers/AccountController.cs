@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using myblogs.Data;
 using myblogs.Models;
 using System;
@@ -130,12 +131,15 @@ namespace myblogs.Controllers
         {
             try
             {
-                
-                var senderEmail = new MailAddress("your_email_name@gmail.com", "myblogs");
+               //to send an email from visual studio localhost to an external email address, go to your gmail account security settings and create an app password ,give your app a name
+               //they will give you a 16 digit password
+               //and use your email and app name with the credentials here you should be good to go if you gollow the steps here.
+                 
+                var senderEmail = new MailAddress("your_email_name@gmail.com", "AppName");
                 var receiverEmail = new MailAddress(userEmail);
                 //var password = "your-16-char-app-password"; // Use the App Password here
                 var password = ""; // Use the App Password here
-                var subject = "Confirm your myblogs Account";
+                var subject = "put your email subject here";
                 var body = $"Please click the link <a href=\"{emailConfirmationLink}\">confirm</a> to confirm your account...";
 
                 var smtp = new SmtpClient

@@ -12,7 +12,7 @@ namespace myblogs.Models
         public int UserId { get; set; }
         public string? UserName { get; set; }
 
-        [Required, DataType( System.ComponentModel.DataAnnotations.DataType.EmailAddress)]
+        [Required, DataType(System.ComponentModel.DataAnnotations.DataType.EmailAddress)]
         public string? EmailAddress { get; set; }
 
         [Required, DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
@@ -20,12 +20,12 @@ namespace myblogs.Models
 
         [Required, DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         public string? ConfirmPassword { get; set; }
-       
+
         public bool AccountConfirmation { get; set; }
         public DateTime LastLogedIn { get; set; }
-        
+
         public bool RememberMe { get; set; }
-       
+
 
     }
 
